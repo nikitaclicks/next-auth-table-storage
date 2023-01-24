@@ -1,6 +1,6 @@
 import {randomBytes} from "crypto";
 import {TableClient} from "@azure/data-tables";
-import {AdapterAccount, AdapterSession, AdapterUser, VerificationToken} from "next-auth/adapters";
+import {AdapterAccount, AdapterSession, AdapterUser, VerificationToken as AdapterVerificationToken} from "next-auth/adapters";
 
 const keys = {
     user: 'user',
@@ -179,13 +179,13 @@ export const TableStorageAdapter = (client: TableClient) => {
                     client.deleteEntity(keys.session, sessionToken),
                     client.deleteEntity(keys.sessionByUserId, session.userId)
                 ]);
-                
+
                 return withoutKeys(session);
             } catch {
                 return null;
             }
         },
-        async createVerificationToken(token: VerificationToken) {
+        async createVerificationToken(token: AdapterVerificationToken) {
             await client.createEntity({ ...token, partitionKey: keys.verificationToken, rowKey: token.token });
 
             return token;
