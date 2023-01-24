@@ -2,8 +2,6 @@
 
 Plug-n-play single-file version.
 
-An alternative is here: https://github.com/nextauthjs/next-auth/pull/6494
-
 ## Usage
 
 1. Install npm package `@azure/data-tables`
@@ -24,4 +22,4 @@ AZURE_TABLES_ENDPOINT=https://$AZURE_ACCOUNT.table.core.windows.net
 ## Notes
 
 1. Can be used with a JWT session strategy to decrease reads and writes.
-2. Cannot be part of the official repo https://github.com/nextauthjs/next-auth because no tests yet.
+2. Can soon become a part of an official repo https://github.com/nextauthjs/next-auth/pull/6494
