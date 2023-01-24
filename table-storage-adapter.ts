@@ -121,7 +121,7 @@ export const TableStorageAdapter = (client: TableClient) => {
       try {
         const session = await client.getEntity(keys.session, sessionToken);
 
-        if (session.expires < Date.now()) {
+        if (session.expires.valueOf() < Date.now()) {
           await client.deleteEntity(keys.session, sessionToken);
         }
 
