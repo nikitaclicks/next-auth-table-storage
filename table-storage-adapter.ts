@@ -149,8 +149,11 @@ export const TableStorageAdapter = (client: TableClient) => {
             try {
                 const session = await client.getEntity(keys.session, sessionToken);
 
-                await client.deleteEntity(keys.session, sessionToken);
-
+                await Promise.all([
+                    client.deleteEntity(keys.session, sessionToken),
+                    client.deleteEntity(keys.sessionByUserId, session.userId)
+                ]);
+                
                 return withoutKeys(session);
             } catch {
                 return null;
