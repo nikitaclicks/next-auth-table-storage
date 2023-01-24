@@ -1,5 +1,7 @@
 # Auth.js Azure Table Storage Adapter
 
+An alternative version is here: https://github.com/nextauthjs/next-auth/pull/6494
+
 ## Usage
 
 1. Install npm package `@azure/data-tables`
