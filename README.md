@@ -1,4 +1,4 @@
-# Auth.js Azure Table Storage Adapter
+# NextAuth.js Azure Table Storage Adapter
 
 An alternative version is here: https://github.com/nextauthjs/next-auth/pull/6494
 
